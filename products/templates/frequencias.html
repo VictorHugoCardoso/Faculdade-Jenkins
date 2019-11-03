@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        ul li{
+            display: inline-block
+        }
+    </style>
+</head>
+<body>
+    <h1>Frequencias em {{disciplina_nome}}: <b>{{dataFreq}}</b> </h1>
+    {% for aluno in alunos %}
+    <ul>
+        </B>
+            <li> {{ aluno.aluno_id }}</li>
+            <li> {{ aluno.aluno }}</li>
+            <li> <a href="{% url 'change_status' aluno.discliplina.id aluno.aluno.id dataFreq  %}"><button class="addPresenca" class="btn">
+                Presente</button></a></li>
+    </ul>
+    {% endfor %} 
+    
+    Consultar outra data: <input id="novaData" type="date" onchange=changeDate()>
+    <a id="change-date" href="{% url 'list_frequencias' disciplina_id dataFreq %}">Ir!</a>
+
+    <Br>
+    <a href="http://localhost:8000/disciplinas"><input type="button" class="btn btn-primary" value="Voltar"></input></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+
+        function changeDate(input){
+            var url = $('#change-date').attr('href');
+            var date = $('#novaData').val();
+            var newurl = url.slice(0, url.lastIndexOf('/')) + "/" + date;
+            $("#change-date").attr('href',newurl)
+        }
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+</body>
+</html>

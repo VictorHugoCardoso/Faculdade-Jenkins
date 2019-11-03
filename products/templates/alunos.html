@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+<h2> Lista geral de Alunos </h2>
+
+    <ul>
+        {%  for aluno in alunos %}
+
+            <h5> {{aluno}} <a href="{% url 'update_aluno' aluno.id %}"> edit </a> <a href="{% url 'delete_aluno' aluno.id %}"> delete </a> </h5>
+
+
+
+        {% endfor %}
+    </ul>
+<a href="{% url 'create_aluno' %}">New aluno</a>
+<a href="{% url 'create_aluno_disciplina' %}">New aluno disciplina</a>
+<Br>
+    <a href="http://localhost:8000/disciplinas/"><input type="button" class="btn btn-primary" value="Disciplinas"></input></a>
+
+ </body>
+</html>
