@@ -13,18 +13,19 @@
     <h1>Disciplinas </h1>
     <ul>
         {% for disciplina in disciplinas %}
-            <a href="{% url 'list_frequencias' disciplina.id current_date%}">
+            <a name="namedisciplina" href="{% url 'list_frequencias' disciplina.id current_date%}">
                {{ disciplina.nomeDisciplina }}
             </a>
-            <a href="{% url 'list_notas' disciplina.id%}">
+            <a name="editnota" href="{% url 'list_notas' disciplina.id%}">
             Notas
             </a>
-            <a href="{% url 'update_disciplina' disciplina.id %}"> edit </a>
+            <a name="editdisciplina" href="{% url 'update_disciplina' disciplina.id %}"> edit </a>
             <br>
         {% endfor %}
     </ul>
 <br>
-    <a href="{% url 'create_disciplina' %}">Nova Disciplina</a>
+    <a name="newdisciplina" href="{% url 'create_disciplina' %}">New disciplina</a>
+
    <a href="/alunos/" id='testeste'><input type="button" class="btn btn-primary" value="Aluno"></input></a>
 </body>
 </html>

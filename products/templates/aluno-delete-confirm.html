@@ -11,7 +11,7 @@
     <form method="post">
         {% csrf_token %}
         <h2>Are you sure you want to remove {{ aluno.nomeAluno}} ?</h2>
-        <button type="submit">Confirm</button>
+        <button name="deletealuno" type="submit">Confirm</button>
     </form>
 </body>
 </html>

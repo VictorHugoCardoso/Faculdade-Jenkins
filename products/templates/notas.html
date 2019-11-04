@@ -33,7 +33,7 @@
       <td> {{ nota.nota3}}</td>
       <td> {{ nota.nota4}}</td>
 
-    <td><a href="{% url 'update_notas' nota.aluno.id %}"> Edit {{nota.aluno.id}}</a></td>
+    <td><a name="editnotaaluno" href="{% url 'update_notas' nota.aluno.id %}"> Edit {{nota.aluno.id}}</a></td>
     </tr>
  {% endfor %}
   </tbody>

@@ -15,13 +15,13 @@
     <ul>
         {%  for aluno in alunos %}
 
-            <h5> {{aluno}} <a href="{% url 'update_aluno' aluno.id %}"> edit </a> <a href="{% url 'delete_aluno' aluno.id %}"> delete </a> </h5>
+            <h5> {{aluno}} <a name="editaluno" href="{% url 'update_aluno' aluno.id %}"> edit </a> <a name="removealuno" href="{% url 'delete_aluno' aluno.id %}"> delete </a> </h5>
 
 
 
         {% endfor %}
     </ul>
-<a href="{% url 'create_aluno' %}">New aluno</a>
+<a name="newaluno" href="{% url 'create_aluno' %}">New aluno</a>
 <a href="{% url 'create_aluno_disciplina' %}">New aluno disciplina</a>
 <Br>
     <a href="/disciplinas/"><input type="button" class="btn btn-primary" value="Disciplinas"></input></a>

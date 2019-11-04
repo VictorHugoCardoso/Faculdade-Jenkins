@@ -21,7 +21,7 @@
         </B>
             <li> {{ aluno.aluno_id }}</li>
             <li> {{ aluno.aluno }}</li>
-            <li> <a href="{% url 'change_status' aluno.discliplina.id aluno.aluno.id dataFreq  %}"><button class="addPresenca" class="btn" presente='{{ aluno.presente }}'>
+            <li> <a href="{% url 'change_status' aluno.discliplina.id aluno.aluno.id dataFreq  %}"><button  name="addpresenca" class="addPresenca" class="btn">
                 Presente</button></a></li>
     </ul>
     {% endfor %} 
@@ -30,7 +30,7 @@
     <a id="change-date" href="{% url 'list_frequencias' disciplina_id dataFreq %}">Ir!</a>
 
     <Br>
-    <a href="/disciplinas/"><input type="button" class="btn btn-primary" value="Voltar"></input></a>
+    <a href="/disciplinas/"><input name="backbutton" type="button" class="btn btn-primary" value="Voltar"></input></a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -41,26 +41,6 @@
             var date = $('#novaData').val();
             var newurl = url.slice(0, url.lastIndexOf('/')) + "/" + date;
             $("#change-date").attr('href',newurl)
-        }
-
-        var buttons  = document.getElementsByClassName("addPresenca");
-        for ( var counter = 0; counter < buttons.length; counter++){
-            btn = buttons[counter];
-            
-            presente = btn.getAttribute('presente');
-            
-            if(presente == 0){
-                btn.setAttribute('style','background-color: blue');
-            }else{
-                if(presente == 1){
-                    btn.setAttribute('style','background-color: green');
-                }else{
-                    if(presente == 2){
-                        btn.setAttribute('style','background-color: red');
-                    }
-                }
-            }
-           
         }
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
